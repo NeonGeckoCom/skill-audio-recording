@@ -55,33 +55,18 @@ with open(os.path.join(BASE_PATH, "README.md"), "r") as f:
     long_description = f.read()
 
 
-def get_version():
-    """ Find the version of this skill"""
-    version_file = os.path.join(BASE_PATH, 'version.py')
-    major, minor, build, alpha = (None, None, None, None)
-    with open(version_file) as f:
-        for line in f:
-            if 'VERSION_MAJOR' in line:
-                major = line.split('=')[1].strip()
-            elif 'VERSION_MINOR' in line:
-                minor = line.split('=')[1].strip()
-            elif 'VERSION_BUILD' in line:
-                build = line.split('=')[1].strip()
-            elif 'VERSION_ALPHA' in line:
-                alpha = line.split('=')[1].strip()
-
-            if ((major and minor and build and alpha) or
-                    '# END_VERSION_BLOCK' in line):
-                break
-    version = f"{major}.{minor}.{build}"
-    if int(alpha):
-        version += f"a{alpha}"
-    return version
+with open(path.join(BASE_PATH, "version.py"), "r", encoding="utf-8") as v:
+    for line in v.readlines():
+        if line.startswith("__version__"):
+            if '"' in line:
+                version = line.split('"')[1]
+            else:
+                version = line.split("'")[1]
 
 
 setup(
     name=f"neon-{SKILL_NAME}",
-    version=get_version(),
+    version=version,
     long_description=long_description,
     url=f'https://github.com/NeonGeckoCom/{SKILL_NAME}',
     author='Neongecko',
