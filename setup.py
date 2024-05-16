@@ -1,17 +1,40 @@
-#!/usr/bin/env python3
+# NEON AI (TM) SOFTWARE, Software Development Kit & Application Framework
+# All trademark and other rights reserved by their respective owners
+# Copyright 2008-2022 Neongecko.com Inc.
+# Contributors: Daniel McKnight, Guy Daniels, Elon Gasper, Richard Leeds,
+# Regina Bloomstine, Casimiro Ferreira, Andrii Pernatii, Kirill Hrymailo
+# BSD-3 License
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+# 1. Redistributions of source code must retain the above copyright notice,
+#    this list of conditions and the following disclaimer.
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution.
+# 3. Neither the name of the copyright holder nor the names of its
+#    contributors may be used to endorse or promote products derived from this
+#    software without specific prior written permission.
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+# THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+# PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+# CONTRIBUTORS  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+# OR PROFITS;  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+# LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+# NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+# SOFTWARE,  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 import os
 from setuptools import setup
 from os import walk, path
 
-URL = "https://github.com/OpenVoiceOS/skill-ovos-hello-world"
-SKILL_CLAZZ = "HelloWorldSkill"  # needs to match __init__.py class name
-PYPI_NAME = "ovos-skill-hello-world"  # pip install PYPI_NAME
-
-# below derived from github url to ensure standard skill_id
-SKILL_AUTHOR, SKILL_NAME = URL.split(".com/")[-1].split("/")
-SKILL_PKG = SKILL_NAME.lower().replace('-', '_')
-PLUGIN_ENTRY_POINT = f'{SKILL_NAME.lower()}.{SKILL_AUTHOR.lower()}={SKILL_PKG}:{SKILL_CLAZZ}'
+SKILL_NAME = "skill-audio-recording"
+SKILL_PKG = SKILL_NAME.replace('-', '_')
 # skill_id=package_name:SkillClass
+PLUGIN_ENTRY_POINT = f'{SKILL_NAME}.neongeckocom={SKILL_PKG}:AudioRecordingSkill'
+BASE_PATH = path.abspath(path.dirname(__file__))
 
 
 def find_resource_files():
@@ -28,47 +51,31 @@ def find_resource_files():
     return package_data
 
 
-with open("README.md", "r") as f:
+with open(os.path.join(BASE_PATH, "README.md"), "r") as f:
     long_description = f.read()
 
 
-def get_version():
-    """ Find the version of this skill"""
-    version_file = os.path.join(os.path.dirname(__file__), 'version.py')
-    major, minor, build, alpha = (None, None, None, None)
-    with open(version_file) as f:
-        for line in f:
-            if 'VERSION_MAJOR' in line:
-                major = line.split('=')[1].strip()
-            elif 'VERSION_MINOR' in line:
-                minor = line.split('=')[1].strip()
-            elif 'VERSION_BUILD' in line:
-                build = line.split('=')[1].strip()
-            elif 'VERSION_ALPHA' in line:
-                alpha = line.split('=')[1].strip()
-
-            if ((major and minor and build and alpha) or
-                    '# END_VERSION_BLOCK' in line):
-                break
-    version = f"{major}.{minor}.{build}"
-    if int(alpha):
-        version += f"a{alpha}"
-    return version
+with open(path.join(BASE_PATH, "version.py"), "r", encoding="utf-8") as v:
+    for line in v.readlines():
+        if line.startswith("__version__"):
+            if '"' in line:
+                version = line.split('"')[1]
+            else:
+                version = line.split("'")[1]
 
 
 setup(
-    name=PYPI_NAME,
-    version=get_version(),
+    name=f"neon-{SKILL_NAME}",
+    version=version,
     long_description=long_description,
-    url=URL,
-    author=SKILL_AUTHOR,
-    description='OVOS hello world skill plugin',
-    author_email='jarbasai@mailfence.com',
-    license='Apache-2.0',
+    url=f'https://github.com/NeonGeckoCom/{SKILL_NAME}',
+    author='Neongecko',
+    description='Audio recording skill',
+    author_email='developers@neon.ai',
+    license='BSD-3-Clause',
     package_dir={SKILL_PKG: ""},
     package_data={SKILL_PKG: find_resource_files()},
     packages=[SKILL_PKG],
     include_package_data=True,
-    keywords='ovos skill plugin',
     entry_points={'ovos.plugin.skill': PLUGIN_ENTRY_POINT}
 )
