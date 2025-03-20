@@ -1,46 +1,32 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/skill-ovos-hello-world/tree/HEAD)
+## [0.0.1a3](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.1a3) (2025-03-20)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-hello-world/compare/V0.0.4a1...HEAD)
-
-**Implemented enhancements:**
-
-- feat: current practices [\#8](https://github.com/OpenVoiceOS/skill-ovos-hello-world/pull/8) ([mikejgray](https://github.com/mikejgray))
-
-## [V0.0.4a1](https://github.com/OpenVoiceOS/skill-ovos-hello-world/tree/V0.0.4a1) (2023-05-05)
-
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-hello-world/compare/V0.0.3...V0.0.4a1)
-
-**Implemented enhancements:**
-
-- Fix en-us language [\#7](https://github.com/OpenVoiceOS/skill-ovos-hello-world/pull/7) ([goldyfruit](https://github.com/goldyfruit))
-
-## [V0.0.3](https://github.com/OpenVoiceOS/skill-ovos-hello-world/tree/V0.0.3) (2023-03-13)
-
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-hello-world/compare/V0.0.3a2...V0.0.3)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/0.0.1a2...0.0.1a3)
 
 **Merged pull requests:**
 
-- Add missing release\_skillstore.py [\#6](https://github.com/OpenVoiceOS/skill-ovos-hello-world/pull/6) ([NeonDaniel](https://github.com/NeonDaniel))
-- Update build tests to shared workflow and include manifest tests [\#5](https://github.com/OpenVoiceOS/skill-ovos-hello-world/pull/5) ([NeonDaniel](https://github.com/NeonDaniel))
+- Remove unimplemented GHA workflow file [\#6](https://github.com/NeonGeckoCom/skill-audio-recording/pull/6) ([NeonDaniel](https://github.com/NeonDaniel))
 
-## [V0.0.3a2](https://github.com/OpenVoiceOS/skill-ovos-hello-world/tree/V0.0.3a2) (2023-03-09)
+## [0.0.1a2](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.1a2) (2025-03-11)
 
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-hello-world/compare/V0.0.3a1...V0.0.3a2)
-
-**Merged pull requests:**
-
-- Update dependencies to stable versions [\#3](https://github.com/OpenVoiceOS/skill-ovos-hello-world/pull/3) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [V0.0.3a1](https://github.com/OpenVoiceOS/skill-ovos-hello-world/tree/V0.0.3a1) (2023-03-04)
-
-[Full Changelog](https://github.com/OpenVoiceOS/skill-ovos-hello-world/compare/9af53d8718526e0bea2bbb479321a4864e6bb77c...V0.0.3a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/0.0.1a1...0.0.1a2)
 
 **Merged pull requests:**
 
-- Add PyPI Automation scripts and workflows [\#2](https://github.com/OpenVoiceOS/skill-ovos-hello-world/pull/2) ([NeonDaniel](https://github.com/NeonDaniel))
-- Feat/runtime requirements [\#1](https://github.com/OpenVoiceOS/skill-ovos-hello-world/pull/1) ([JarbasAl](https://github.com/JarbasAl))
+- Update automation, gitignore, and license notices [\#5](https://github.com/NeonGeckoCom/skill-audio-recording/pull/5) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [0.0.1a1](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.1a1) (2024-05-16)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/b56b43da1f3612396ce89979f480eff89d1484a6...0.0.1a1)
+
+**Fixed bugs:**
+
+- \[BUG\] Resolve Failing Automations [\#1](https://github.com/NeonGeckoCom/skill-audio-recording/issues/1)
+
+**Merged pull requests:**
+
+- Update automation and backport OVOS changes [\#2](https://github.com/NeonGeckoCom/skill-audio-recording/pull/2) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
