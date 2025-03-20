@@ -1,0 +1,11 @@
+# This workflow will run unit tests
+
+name: Update skill.json
+on:
+  push:
+    branches-ignore:
+      - XLATE_**
+
+jobs:
+  update_skill_json:
+    uses: neongeckocom/.github/.github/workflows/skill_update_json_spec.yml@master
