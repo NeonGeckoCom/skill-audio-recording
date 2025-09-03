@@ -28,7 +28,7 @@
 
 import os
 from setuptools import setup
-from os import walk, path
+from os import walk, path, getenv
 
 SKILL_NAME = "skill-audio-recording"
 SKILL_PKG = "neon_" + SKILL_NAME.replace('-', '_')
