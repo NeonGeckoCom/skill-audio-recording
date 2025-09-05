@@ -95,7 +95,6 @@ setup(
     author_email='developers@neon.ai',
     license='BSD-3-Clause',
     install_requires=get_requirements("requirements.txt"),
-    package_dir={SKILL_PKG: ""},
     package_data={SKILL_PKG: find_resource_files()},
     packages=[SKILL_PKG],
     include_package_data=True,

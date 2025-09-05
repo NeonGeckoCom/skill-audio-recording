@@ -38,6 +38,7 @@ from ovos_workshop.skills import OVOSSkill
 
 class AudioRecordingSkill(OVOSSkill):
     def __init__(self, **kwargs):
+        OVOSSkill.__init__(self, **kwargs)
         self.recording = False
         self.add_event("recognizer_loop:record_stop", self.handle_recording_stop)
 
