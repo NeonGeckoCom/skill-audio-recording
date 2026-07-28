@@ -1,32 +1,40 @@
 # Changelog
 
-## [0.0.1a3](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.1a3) (2025-03-20)
+## [0.0.2a4](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.2a4) (2025-09-05)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/0.0.1a2...0.0.1a3)
-
-**Merged pull requests:**
-
-- Remove unimplemented GHA workflow file [\#6](https://github.com/NeonGeckoCom/skill-audio-recording/pull/6) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [0.0.1a2](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.1a2) (2025-03-11)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/0.0.1a1...0.0.1a2)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/0.0.2a3...0.0.2a4)
 
 **Merged pull requests:**
 
-- Update automation, gitignore, and license notices [\#5](https://github.com/NeonGeckoCom/skill-audio-recording/pull/5) ([NeonDaniel](https://github.com/NeonDaniel))
+- Fix errors causing skill load failure [\#11](https://github.com/NeonGeckoCom/skill-audio-recording/pull/11) ([NeonDaniel](https://github.com/NeonDaniel))
 
-## [0.0.1a1](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.1a1) (2024-05-16)
+## [0.0.2a3](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.2a3) (2025-09-03)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/b56b43da1f3612396ce89979f480eff89d1484a6...0.0.1a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/0.0.2a2...0.0.2a3)
+
+**Merged pull requests:**
+
+- Refactor into a structure that supports editable installation [\#10](https://github.com/NeonGeckoCom/skill-audio-recording/pull/10) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [0.0.2a2](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.2a2) (2025-09-02)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/0.0.2a1...0.0.2a2)
 
 **Fixed bugs:**
 
-- \[BUG\] Resolve Failing Automations [\#1](https://github.com/NeonGeckoCom/skill-audio-recording/issues/1)
+- \[BUG\] Shutdown method tries to check attribute that may not exist [\#4](https://github.com/NeonGeckoCom/skill-audio-recording/issues/4)
 
 **Merged pull requests:**
 
-- Update automation and backport OVOS changes [\#2](https://github.com/NeonGeckoCom/skill-audio-recording/pull/2) ([NeonDaniel](https://github.com/NeonDaniel))
+- Refactor skill init to resolve logged errors [\#9](https://github.com/NeonGeckoCom/skill-audio-recording/pull/9) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [0.0.2a1](https://github.com/NeonGeckoCom/skill-audio-recording/tree/0.0.2a1) (2025-07-31)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-audio-recording/compare/0.0.1...0.0.2a1)
+
+**Merged pull requests:**
+
+- ukrainian translation [\#8](https://github.com/NeonGeckoCom/skill-audio-recording/pull/8) ([NeonDmitry](https://github.com/NeonDmitry))
 
 
 

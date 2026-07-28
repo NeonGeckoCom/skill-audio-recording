@@ -28,18 +28,39 @@
 
 import os
 from setuptools import setup
-from os import walk, path
+from os import walk, path, getenv
 
 SKILL_NAME = "skill-audio-recording"
-SKILL_PKG = SKILL_NAME.replace('-', '_')
+SKILL_PKG = "neon_" + SKILL_NAME.replace('-', '_')
 # skill_id=package_name:SkillClass
 PLUGIN_ENTRY_POINT = f'{SKILL_NAME}.neongeckocom={SKILL_PKG}:AudioRecordingSkill'
 BASE_PATH = path.abspath(path.dirname(__file__))
 
 
+def get_requirements(requirements_filename: str):
+    requirements_file = path.join(BASE_PATH, requirements_filename)
+    requirements_file = path.join(BASE_PATH, "requirements", requirements_filename)
+    with open(requirements_file, 'r', encoding='utf-8') as r:
+        requirements = r.readlines()
+    requirements = [r.strip() for r in requirements if r.strip()
+                    and not r.strip().startswith("#")]
+    for i in range(0, len(requirements)):
+        r = requirements[i]
+        if "@" in r:
+            parts = [p.lower() if p.strip().startswith("git+http") else p
+                     for p in r.split('@')]
+            r = "@".join(parts)
+        if getenv("GITHUB_TOKEN"):
+            if "github.com" in r:
+                requirements[i] = \
+                    r.replace("github.com",
+                              f"{getenv('GITHUB_TOKEN')}@github.com")
+    return requirements
+
+
 def find_resource_files():
     resource_base_dirs = ("locale", "ui", "vocab", "dialog", "regex", "skill")
-    base_dir = path.dirname(__file__)
+    base_dir = path.join(BASE_PATH, SKILL_PKG)
     package_data = ["*.json"]
     for res in resource_base_dirs:
         if path.isdir(path.join(base_dir, res)):
@@ -73,7 +94,7 @@ setup(
     description='Audio recording skill',
     author_email='developers@neon.ai',
     license='BSD-3-Clause',
-    package_dir={SKILL_PKG: ""},
+    install_requires=get_requirements("requirements.txt"),
     package_data={SKILL_PKG: find_resource_files()},
     packages=[SKILL_PKG],
     include_package_data=True,

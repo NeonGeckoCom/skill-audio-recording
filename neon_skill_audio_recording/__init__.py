@@ -37,7 +37,9 @@ from ovos_workshop.skills import OVOSSkill
 
 
 class AudioRecordingSkill(OVOSSkill):
-    def initialize(self):
+    def __init__(self, **kwargs):
+        OVOSSkill.__init__(self, **kwargs)
+        self.recording = False
         self.add_event("recognizer_loop:record_stop", self.handle_recording_stop)
 
     @classproperty
@@ -83,7 +85,8 @@ class AudioRecordingSkill(OVOSSkill):
         self.recording = False
 
     def stop(self):
-        """Optional action to take when "stop" is requested by the user.
+        """
+        Optional action to take when "stop" is requested by the user.
         This method should return True if it stopped something or
         False (or None) otherwise.
         If not relevant to your skill, feel free to remove.
